@@ -14,4 +14,12 @@ const filterAnimals = (data, filterTerm) => {
     });
 };
 
-module.exports = {filterAnimals}
+const cmd = (input,arg) =>{
+    let filterRegex = /^(--filter=(.+))$/;
+    if (arg.match(filterRegex)) {
+        return filterAnimals(input, arg.match(filterRegex)[2]);
+    }
+    return [];
+}
+
+module.exports = {filterAnimals,cmd}

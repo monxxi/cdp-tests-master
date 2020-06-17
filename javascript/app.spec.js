@@ -1,7 +1,8 @@
 const filterAnimals = require('./app').filterAnimals;
+const cmd = require('./app').cmd;
 const assert = require('chai').assert;
 const testDataInput = require('./data').data;
-
+const sinon = require('sinon')
 describe('Running app.js test', () => {
 
     describe('for filter spec', () => {
@@ -105,6 +106,30 @@ describe('Running app.js test', () => {
                     }]
                 }])
         })
+
+    });
+
+    describe('for cmd execution', () => {
+        it('should return filter data with argument --filter=ry',() => {
+            const result = cmd(testDataInput,'--filter=ry');
+            assert.deepEqual(result, [
+                {
+                    name: 'Uzuzozne',
+                    people: [{
+                        name: 'Lillie Abbott',
+                        animals:
+                            [{name: 'John Dory'}]
+                    }]
+                }, {
+                    name: 'Satanwi',
+                    people: [{
+                        name: 'Anthony Bruno',
+                        animals:
+                            [{name: 'Oryx'}]
+                    }]
+                }])
+        });
+
 
     })
 
