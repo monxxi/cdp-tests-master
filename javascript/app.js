@@ -18,7 +18,11 @@ const filterAnimals = (data, filterTerm) => {
 };
 
 const count = (data) => {
-
+    data.forEach(country => {
+        country.name = `${country.name} [${country.people !== undefined ? country.people.length : 0}]`;
+        country.people.forEach(person => person.name = `${person.name} [${person.animals !== undefined ? person.animals.length : 0}]`);
+    });
+    return data;
 };
 
 const cmd = (input, arg) => {
@@ -30,5 +34,6 @@ const cmd = (input, arg) => {
 
     return input;
 }
+
 
 module.exports = {filterAnimals, count, cmd}
