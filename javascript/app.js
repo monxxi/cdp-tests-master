@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-
+const data = require('./data').data;
+const util = require('util');
 
 const filterAnimals = (data, filterTerm) => {
 
@@ -30,10 +31,20 @@ const cmd = (input, arg) => {
     if (arg.match(filterRegex)) {
         return filterAnimals(input, arg.match(filterRegex)[2]);
     }
+    if (arg === '--count') {
+        return count(input);
+    }
 
-
-    return input;
+    return [];
 }
 
-
 module.exports = {filterAnimals, count, cmd}
+
+
+if (process.argv[2]) {
+    result = cmd(data, process.argv[2]);
+    console.log(util.inspect(result, {showHidden: false, depth: null}));
+}else{
+    console.log('Nothing to do');
+}
+

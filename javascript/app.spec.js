@@ -3,7 +3,7 @@ const cmd = require('./app').cmd;
 const count = require('./app').count;
 const assert = require('chai').assert;
 const testDataInput = require('./data').data;
-const sinon = require('sinon')
+
 describe('Running app.js test', () => {
 
     describe('for filter spec', () => {
@@ -279,5 +279,3 @@ describe('Running app.js test', () => {
         });
     })
 })
-
-
