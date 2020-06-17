@@ -1,0 +1,17 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "## Context Your job is to write a command-line interface in Node.js.  This program has to filter a list of elements containing a pattern.",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha *.spec.js",
+    "test-watch": "mocha --watch *.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1"
+  }
+}
